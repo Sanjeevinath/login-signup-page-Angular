@@ -1,0 +1,41 @@
+<html>
+    <div class="full">
+        <div class="container">
+            <div class="row">
+                <div class="form-inner">
+                    <h2>Login*</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+      <label>Email*</label>
+      <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        
+        </div>
+</div>
+      <br>
+      <div class="field">
+      <label>Password*</label>
+      
+      <input type="password" formControlName="password" id="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+      
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          
+          </div>
+          </div>
+      <br><br>
+      <!--<div class="pass-link">
+       <a href="#">Forgot password?</a>
+    </div>-->
+    <div class="field btn">
+       <div class="btn-layer"></div>
+       <input type="submit" value="Login" style="background: rgb(3, 140, 252);color: white; margin-left: 125px;"  >
+    </div>
+    <br>
+    <div class="pass-link">
+         <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>New User?</i> <a routerLink="/register" routerLinkActive=""><b><i>Signup here</i></b></a></p>
+    </div>
+     </form>
+     </div>
